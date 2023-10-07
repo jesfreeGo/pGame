@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Usuario {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //con esta notacion el atributo 'id' se vuelve autoincrementable
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //con esta anotacion el atributo 'id' se vuelve autoincrementable
 	private Integer id;
 	private String nombre;
 	private String username;
@@ -24,7 +24,7 @@ public class Usuario {
 	private String tipo;
 	private String password;
 	
-	@OneToMany(mappedBy = "usuario") //notacion de JPA 'un usuario a muchos productos' hace una relacion con la entidad producto
+	@OneToMany(mappedBy = "usuario") //anotacion de JPA 'un usuario a muchos productos' hace una relacion con la entidad producto
 	private List<Producto> productos; //quiere decir que una instancia de esta entidad tiene muchas instancias de la entidad producto
 	
 	/*@OneToMany(mappedBy = "usuario") 
