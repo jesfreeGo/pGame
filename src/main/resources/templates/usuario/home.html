@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 
 
-	<title>Spring eCommerce</title>
+	<title> Spring eGame Store </title>
 
 
 	<!-- Bootstrap core CSS -->
@@ -25,8 +25,10 @@
 <body>
 
 	<!-- Navigation -->
-	<div th:include="usuario/template_usuario.html::header">
+	<div th:include="usuario/template_usuario.html::header" th:if="${session==null}">
+	</div>
 
+	<div th:include="usuario/template_usuario.html::header-user" th:unless="${session==null}">
 	</div>
 
 	<!-- Page Content -->
@@ -34,7 +36,7 @@
 
 		<!-- Jumbotron Header -->
 		<header class="jumbotron my-4">
-			<h1 class="display-3">Bienvenido a Spring Game Store 2023</h1>
+			<h1 class="display-3">Bienvenido a Spring eGame Store 2023</h1>
 			<p class="lead">Tu tienda de juegos en Línea</p>
 		</header>
 
@@ -48,7 +50,7 @@
 						<p class="card-text" th:text="${producto.nombre}"></p>
 					</div>
 					<div class="card-footer">
-						<a th:href="@{productohome/{id}(id=${producto.id})}" class="btn btn-success">Ver producto</a>
+						<a th:href="@{ productohome/{id} (id=${producto.id}) }" class="btn btn-success">Ver producto</a>
 					</div>
 				</div>
 			</div>
