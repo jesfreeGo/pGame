@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{css/heroic-features.css}" rel="stylesheet">
 
 <head>
 
@@ -22,27 +22,25 @@
 <body>
 
 	<!-- Navigation -->
-	<!--<div th:include="usuario/template_usuario.html::header" th:if="${session==null}">
-	</div>--> 
+	<div th:include="usuario/template_usuario.html::header" th:if="${session==null}">
+	</div>
 
 	<div th:include="usuario/template_usuario.html::header-user" th:unless="${session==null}">
 	</div>
+
 	<!-- Page Content -->
-	
 	<div class="container">
 
 
 		<!-- Page Heading/Breadcrumbs -->
 		<h1 class="mt-4 mb-3">
-			Spring eCommerce <small>Compras</small> <a class="nav-link float-right" th:href="@{/usuario/compras/(format=pdf)}" title="Exportar a PDF" target="_blank" style="font-size: 25px;"> 
-			<img class="img-responsive center-box" th:src"@{/images/pdf1.jpg}" height="auto">decargar PDF</a>
-			
-			
+			Spring eCommerce <small>Detalles</small>
 		</h1>
 
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-			<li class="breadcrumb-item active">Compras</li>
+			<li class="breadcrumb-item"><a th:href="@{/usuario/compras}">Compras</a></li>
+			<li class="breadcrumb-item active">Detalle de Compra</li>
 		</ol>
 
 		<!-- Blog Post -->
@@ -53,18 +51,18 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col">No. de Orden</th>
-									<th scope="col">Fecha</th>
-									<th scope="col">Valor</th>
-									<th scope="col">Acción</th>
+									<th scope="col">Cantidad</th>
+									<th scope="col">Producto</th>
+									<th scope="col">Precio</th>
+									<th scope="col">Total</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="orden: ${ordenes}">
-									<td th:text="${orden.numero}">4555454</td>
-									<td th:text="${orden.fechaCreacion}">Fecha de Compra</td>
-									<td th:text="${orden.total}">Total</td>
-									<td><a th:href="@{/usuario/detalle/{id} (id=${orden.id})}" class="btn btn-success">Ver Detalle</a></td>
+								<tr th:each="dCompra:${detallescompra}">
+									<td th:text="${dCompra.cantidad}">Cantidad</tdth>
+									<td th:text="${dCompra.nombre}">Producto</td>
+									<td th:text="${dCompra.precio}">Precio</td>
+									<td th:text="${dCompra.total}">Total</td>
 								</tr>
 							</tbody>
 						</table>
